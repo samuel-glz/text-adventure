@@ -4,19 +4,15 @@
 2. This is not ready to use yet. Currently a work in progress.
 */
 
-const addClasses = (e, ...styles) => {
-    styles.forEach(element => e.classList.toggle(elememt))
+const dmToggle = (e, ...styles) => {
+    styles.forEach(element => e.classList.toggle(element))
 }
 
 // ******** Toggle dark mode for orb color ********
 const orbColor = () => {
     let darkModeOrb = document.querySelector('#dark-mode');
 
-    let colorToggle = (...styles) => {
-        styles.forEach(element => darkModeOrb.classList.toggle(element))
-    }
-
-    colorToggle('from-yellow-200', 'via-yellow-300', 'to-red-600', 'from-gray-400', 'via-gray-300', 'to-gray-400', 'text-purple-800', 'border-purple-400', 'border-gray-200');
+    dmToggle(darkModeOrb, 'from-yellow-200', 'via-yellow-300', 'to-red-600', 'from-gray-400', 'via-gray-300', 'to-gray-400', 'text-purple-800', 'border-purple-400', 'border-gray-200');
 
     switch (darkModeOrb.innerHTML) {
         case 'Sun Orb':
@@ -36,13 +32,10 @@ const optionColors = () => {
     let dmOptionsBox = document.querySelector('.dm-options');
     let button = document.querySelectorAll('button');
 
-    let buttonColorToggle = (...styles) => {
-        styles.forEach(element => dmOptionsBox.classList.toggle(element))
-    }
     // options-container background color
-    buttonColorToggle('bg-gray-700', 'bg-gray-900');
+    dmToggle(dmOptionsBox, 'bg-gray-700', 'bg-gray-900');
 
-    // option-button border color
+    // change border colors for option-buttons
     button.forEach(element => {
         element.classList.toggle('border-gray-600')
     });
@@ -53,17 +46,11 @@ const bodyColor = () => {
     let dmTitle = document.querySelector('.dm-title');
     let body = document.querySelector('body');
 
-    let titleTextColorToggle = (...styles) => {
-        styles.forEach(element => dmTitle.classList.toggle(element))
-    }
     // page title color
-    titleTextColorToggle('text-gray-700', 'text-gray-200');
+    dmToggle(dmTitle, 'text-gray-700', 'text-gray-200');
 
-    let backgroundColorToggle = (...styles) => {
-        styles.forEach(element => body.classList.toggle(element))
-    }
     // webpage background color
-    backgroundColorToggle('bg-gray-200', 'bg-gray-700')
+    dmToggle(body, 'bg-gray-200', 'bg-gray-700')
 
 }
 
@@ -71,11 +58,8 @@ const bodyColor = () => {
 const adventureBoxColor = () => {
     let dmAdventure = document.querySelector('.dm-adventure');
 
-    let colorToggle = (...styles) => {
-        styles.forEach(element => dmAdventure.classList.toggle(element))
-    }
     // adventure text border color
-    colorToggle('bg-gray-700', 'bg-gray-900', 'text-gray-400');
+    dmToggle(dmAdventure, 'bg-gray-700', 'bg-gray-900', 'text-gray-400')
 }
 
 // ******** Event Listener to Toggle dark mode ********
@@ -104,6 +88,10 @@ const addClass = (e, newClass) => {
     e.classList.add(newClass)
 }
 
+const removeClass = (e, newClass) => {
+    e.classList.remove(newClass)
+}
+
 switch (screenSize) {
     case 667:
         addClass(buttonWrapper, 'mt-0')
@@ -113,11 +101,15 @@ switch (screenSize) {
         addClass(buttonOptions, 'rounded-md')
         break;
     case 740:
-        addClass(buttonWrapper, 'margin-740')
+        addClass(buttonWrapper, 'screen-740')
         break;
     case 812:
         addClass(imageWrapper, 'mt-20')
         addClass(buttonWrapper, 'mt-32')
-        addClass(buttonWrapper, 'margin-812')
+        addClass(buttonWrapper, 'screen-812')
+        break;
+    case 846:
+        addClass(buttonWrapper, 'screen-846')
         break;
 }
+console.log(screenSize)
