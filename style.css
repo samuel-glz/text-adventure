@@ -1,6 +1,3 @@
-* {
-	-webkit-tap-highlight-color: transparent;
-}
 .btn:active {
 	scale: 98%;
 }
@@ -25,4 +22,8 @@ input:checked~.dot {
 
 .margin-812 {
 	margin-top: 8.1rem;
+}
+
+button {
+	-webkit-tap-highlight-color: transparent;
 }
