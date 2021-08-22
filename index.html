@@ -14,16 +14,14 @@
 <body class="bg-gray-200">
 	<h2 class="dm-title text-center text-lg font-sans my-4 text-gray-700">Text Adventure</h2>
 
-	<!-- Adventure Dialog -->
-	<div class="dm-adventure bg-gray-700 text-white md:border-2 font-sans md:mx-4 my-2 h-48 md:h-56 md:rounded-md overflow-y-auto shadow-md">Text:
-		Lorem ipsum
-		dolor, sit amet
-		consectetur adipisicing elit. Eaque, rem? Temporibus, vero aliquam impedit enim quisquam rem repellendus dolore
-		harum totam. Quo ex architecto itaque ut tempore fugit, repellendus debitis!
+	<!-- ******** Adventure Dialog ******** -->
+	<div
+		class="game-text dm-adventure bg-gray-700 text-white md:border-2 font-sans md:mx-4 my-2 p-3 h-48 md:h-56 md:rounded-md overflow-y-auto shadow-md">
+		<span>Welcome adventurer...</span>
 	</div>
 
-	<!-- Gameplay Images -->
-	<div class="grid grid-cols-3 mb-5 justify-items-center items-center mb-14">
+	<!-- ******** Gameplay Images ******** -->
+	<div class="image-wrapper grid grid-cols-3 mb-5 justify-items-center items-center mb-14">
 		<div>
 			<img src="/images/hero.gif" alt="Player Avatar" class="attack ml-2">
 		</div>
@@ -35,7 +33,7 @@
 		</div>
 	</div>
 
-	<!-- Option Buttons -->
+	<!-- ******** Option Buttons + Dark Mode Toggler ******** -->
 	<div class="btn-wrapper flex justify-center font-mono test">
 		<div
 			class="dm-options bg-gray-700 grid grid-cols-3 grid-rows-3 gap-5 justify-items-center w-96 md:rounded-md p-3 md:p-4">
@@ -69,9 +67,10 @@
 					Settings
 				</button>
 			</div>
-			<!-- Dark Mode Toggler (Magic Orb) -->
+			<!-- ******** Dark Mode Toggler (Magic Orb) ******** -->
 			<div class="col-start-3 row-start-2 row-span-2 grid content-center">
-				<button id="dark-mode" class="btn bg-gradient-to-br from-yellow-200 via-yellow-300 to-red-600 w-16 h-16 border-2 border-purple-400 rounded-full">Sun Orb</button>
+				<button id="dark-mode"
+					class="btn bg-gradient-to-br from-yellow-200 via-yellow-300 to-red-600 w-16 h-16 border-2 border-purple-400 rounded-full">Sun Orb</button>
 			</div>
 		</div>
 	</div>

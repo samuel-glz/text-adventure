@@ -1,9 +1,14 @@
 
-// TODO: Change internal code for each function that uses addClasses to instead use this glocal version. "e" will be for the dom element (example: darkModeOrb would be "e". See "orbColor" for reference.)
+/* TODO: 
+1. Change internal code for each function that uses addClasses to instead use this glocal version. "e" will be for the dom element (example: darkModeOrb would be "e". See "orbColor" for reference.)
+2. This is not ready to use yet. Currently a work in progress.
+*/
+
 const addClasses = (e, ...styles) => {
     styles.forEach(element => e.classList.toggle(elememt))
 }
 
+// ******** Toggle dark mode for orb color ********
 const orbColor = () => {
     let darkModeOrb = document.querySelector('#dark-mode');
 
@@ -13,9 +18,20 @@ const orbColor = () => {
 
     colorToggle('from-yellow-200', 'via-yellow-300', 'to-red-600', 'from-gray-400', 'via-gray-300', 'to-gray-400', 'text-purple-800', 'border-purple-400', 'border-gray-200');
 
-    //bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500
+    switch (darkModeOrb.innerHTML) {
+        case 'Sun Orb':
+            darkModeOrb.innerHTML = 'Moon Orb'
+            break;
+        case 'Moon Orb':
+            darkModeOrb.innerHTML = 'Sun Orb'
+            break;
+        default:
+            console.log('Issue Detected: Switch statement for Orb is failing.')
+    }
+
 }
 
+// ******** Toggle dark mode for options sectione ********
 const optionColors = () => {
     let dmOptionsBox = document.querySelector('.dm-options');
     let button = document.querySelectorAll('button');
@@ -32,6 +48,7 @@ const optionColors = () => {
     });
 }
 
+// ******** Toggle dark mode for body color ********
 const bodyColor = () => {
     let dmTitle = document.querySelector('.dm-title');
     let body = document.querySelector('body');
@@ -50,6 +67,7 @@ const bodyColor = () => {
 
 }
 
+// ******** Toggle dark mode for the adventure text box ********
 const adventureBoxColor = () => {
     let dmAdventure = document.querySelector('.dm-adventure');
 
@@ -60,11 +78,13 @@ const adventureBoxColor = () => {
     colorToggle('bg-gray-700', 'bg-gray-900', 'text-gray-400');
 }
 
+// ******** Event Listener to Toggle dark mode ********
 const darkModeListener = (event, action) => {
     let darkModeOrb = document.querySelector('#dark-mode');
     darkModeOrb.addEventListener(event, action);
 }
 
+// ******** Toggle Dark Mode ********
 const darkMode = () => {
     darkModeListener('click', orbColor);
     darkModeListener('click', bodyColor);
@@ -72,9 +92,13 @@ const darkMode = () => {
     darkModeListener('click', adventureBoxColor);
 }
 
+darkMode()
+
 const screenSize = window.screen.height
 const buttonWrapper = document.querySelector('.btn-wrapper')
 const buttonOptions = document.querySelector('.dm-options')
+const imageWrapper = document.querySelector('.image-wrapper')
+const gameText = document.querySelector('.game-text')
 
 const addClass = (e, newClass) => {
     e.classList.add(newClass)
@@ -86,16 +110,14 @@ switch (screenSize) {
         break;
     case 736:
         addClass(buttonWrapper, 'mt-24')
+        addClass(buttonOptions, 'rounded-md')
         break;
     case 740:
-        addClass(buttonWrapper, 'mt-32')
-        console.log('Galaxy')
+        addClass(buttonWrapper, 'margin-740')
         break;
     case 812:
-        console.log('iPhone X')
+        addClass(imageWrapper, 'mt-20')
+        addClass(buttonWrapper, 'mt-32')
+        addClass(buttonWrapper, 'margin-812')
         break;
-    default:
-        console.log('--Options box margin not affected by switch statement--\n--Device size not being tracked in switch statement--')
 }
-
-console.log(screenSize)
