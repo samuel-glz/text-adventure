@@ -78,38 +78,38 @@ const darkMode = () => {
 
 darkMode()
 
-const screenSize = window.screen.height
-const buttonWrapper = document.querySelector('.btn-wrapper')
-const buttonOptions = document.querySelector('.dm-options')
-const imageWrapper = document.querySelector('.image-wrapper')
-const gameText = document.querySelector('.game-text')
-
 const addClass = (e, newClass) => {
     e.classList.add(newClass)
 }
 
-const removeClass = (e, newClass) => {
-    e.classList.remove(newClass)
+const mobileOptionButtonPosition = () => {
+    const screenSize = window.screen.height
+    const buttonWrapper = document.querySelector('.btn-wrapper')
+    const buttonOptions = document.querySelector('.dm-options')
+    const imageWrapper = document.querySelector('.image-wrapper')
+    const gameText = document.querySelector('.game-text')
+
+    switch (screenSize) {
+        case 667:
+            addClass(buttonWrapper, 'mt-0')
+            break;
+        case 736:
+            addClass(buttonWrapper, 'mt-24')
+            addClass(buttonOptions, 'rounded-md')
+            break;
+        case 740:
+            addClass(buttonWrapper, 'screen-740')
+            break;
+        case 812:
+            addClass(imageWrapper, 'mt-20')
+            addClass(buttonWrapper, 'mt-32')
+            addClass(buttonWrapper, 'screen-812')
+            break;
+        case 846:
+            addClass(buttonWrapper, 'screen-846')
+            break;
+    }
 }
 
-switch (screenSize) {
-    case 667:
-        addClass(buttonWrapper, 'mt-0')
-        break;
-    case 736:
-        addClass(buttonWrapper, 'mt-24')
-        addClass(buttonOptions, 'rounded-md')
-        break;
-    case 740:
-        addClass(buttonWrapper, 'screen-740')
-        break;
-    case 812:
-        addClass(imageWrapper, 'mt-20')
-        addClass(buttonWrapper, 'mt-32')
-        addClass(buttonWrapper, 'screen-812')
-        break;
-    case 846:
-        addClass(buttonWrapper, 'screen-846')
-        break;
-}
-console.log(screenSize)
+mobileOptionButtonPosition()
+
