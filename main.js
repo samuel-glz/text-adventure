@@ -13,8 +13,7 @@ const orbColor = () => {
     let darkModeOrb = document.querySelector('#dark-mode');
 
     dmToggle(darkModeOrb, 'from-yellow-200', 'via-yellow-300', 'to-red-600', 'from-gray-400', 'via-gray-300', 'to-gray-400', 'text-purple-800', 'border-purple-400', 'border-gray-200');
-
-    switch (darkModeOrb.innerHTML) {
+    switch (darkModeOrb.innerHTML.trim()) {
         case 'Sun Orb':
             darkModeOrb.innerHTML = 'Moon Orb'
             break;
@@ -83,33 +82,64 @@ const addClass = (e, newClass) => {
 }
 
 const mobileOptionButtonPosition = () => {
-    const screenSize = window.screen.height
-    const buttonWrapper = document.querySelector('.btn-wrapper')
-    const buttonOptions = document.querySelector('.dm-options')
-    const imageWrapper = document.querySelector('.image-wrapper')
-    const gameText = document.querySelector('.game-text')
+    const screenSize = window.screen.height;
+    const buttonWrapper = document.querySelector('.btn-wrapper');
+    const buttonOptions = document.querySelector('.dm-options');
+    const imageWrapper = document.querySelector('.image-wrapper');
+    const gameText = document.querySelector('.game-text');
 
     switch (screenSize) {
         case 667:
-            addClass(buttonWrapper, 'mt-0')
+            addClass(buttonWrapper, 'mt-0');
             break;
         case 736:
-            addClass(buttonWrapper, 'mt-24')
-            addClass(buttonOptions, 'rounded-md')
+            addClass(buttonWrapper, 'mt-24');
+            addClass(buttonOptions, 'rounded-md');
             break;
         case 740:
-            addClass(buttonWrapper, 'screen-740')
+            addClass(buttonWrapper, 'screen-740');
             break;
         case 812:
-            addClass(imageWrapper, 'mt-20')
-            addClass(buttonWrapper, 'mt-32')
-            addClass(buttonWrapper, 'screen-812')
+            addClass(imageWrapper, 'mt-20');
+            addClass(buttonWrapper, 'mt-32');
+            addClass(buttonWrapper, 'screen-812');
             break;
         case 846:
-            addClass(buttonWrapper, 'screen-846')
+            addClass(buttonWrapper, 'screen-846');
             break;
     }
 }
 
 mobileOptionButtonPosition()
+
+// *****************************************
+//WORK IN PROGRESS
+//******************************************
+// let text = 'Welcome adventurer. What is your name?'
+
+// // Adds one letter at a time to the adventure dialog box.
+// const textArray = text.split('');
+// let loopTimer;
+
+// const frameLooper = () => {
+//     textArray.length > 0 ? document.querySelector('#text').innerHTML += textArray.shift() : clearTimeout(loopTimer);
+//     loopTimer = setTimeout('frameLooper()', 30);
+// }
+
+// frameLooper()
+
+// let dialog = (text) => {
+//     let textArray = text.split('');
+//     return textArray;
+// }
+
+// let loopTimer
+
+// const frameLooper = (text) => {
+//     let array = dialog(text)
+//     array.length > 0 ? document.querySelector('#text').innerHTML += array.shift() : clearTimeout(loopTimer);
+//     loopTimer = setTimeout('frameLooper()', 30);
+// }
+
+// frameLooper(dialog('test'))
 
