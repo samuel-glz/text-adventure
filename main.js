@@ -112,9 +112,6 @@ const mobileOptionButtonPosition = () => {
 
 mobileOptionButtonPosition()
 
-// *****************************************
-//WORK IN PROGRESS
-//******************************************
 // let text = 'Welcome adventurer. What is your name?'
 
 // // Adds one letter at a time to the adventure dialog box.
@@ -128,18 +125,29 @@ mobileOptionButtonPosition()
 
 // frameLooper()
 
-// let dialog = (text) => {
-//     let textArray = text.split('');
-//     return textArray;
-// }
+let timer;
+function typer(text) {
+  let characters = text.split('');
+  timer = setInterval(() => {
+    if (characters.length > 0) {
+        document.querySelector("#text").innerHTML +=            characters.shift();
+    } else {
+      clearInterval(timer)
+    }
+  }, 30);
+}
 
-// let loopTimer
+typer('This is a test')
 
-// const frameLooper = (text) => {
-//     let array = dialog(text)
-//     array.length > 0 ? document.querySelector('#text').innerHTML += array.shift() : clearTimeout(loopTimer);
-//     loopTimer = setTimeout('frameLooper()', 30);
-// }
 
-// frameLooper(dialog('test'))
+const playerInput = document.querySelector('#player-input')
+
+playerInput.addEventListener('keydown', () => {
+    console.log(input.value)
+})
+
+// const playerName = 
+
+// typer(`Welcome ${playerName}. You have a long journey ahead of you.`)
+// const playerHome = 
 
