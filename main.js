@@ -157,40 +157,32 @@ function typer(text) {
 
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
-let playerSpeaking = ''
+let playerSpeaking = '';
+let playerName = '';
 
-const playerInteraction = () => {
+const activateTyping = () => {
+    playerInput.disabled = false
+    playerEnter.disabled = false
+}
+
+const deactivateTyping = () => {
+    playerInput.disabled = true
+    playerEnter.disabled = true
+}
+
+const playerSpoke = () => {
     playerSpeaking = playerInput.value;
     playerInput.value = '';
 }
 
 playerEnter.addEventListener('click', () => {
     if (playerInput.value.length > 0) {
-        playerInteraction();
+        playerSpoke();
     }
 })
 
 playerInput.addEventListener('keydown', (e) => {
     if (playerInput.value.length > 0 && e.which === 13) {
-        playerInteraction();
+        playerSpoke();
     }
 })
-
-let playerName = '';
-
-if (playerName.length = 0) {
-    console.log(playerName.length)
-    console.log('true')
-    // typer(`You're lucky I got here when I did. You looked pretty roughed up. What's your name traveler?`)
-    // playerName = playerInput.value
-    // console.log(playerName)
-}
-else {
-    console.log(playerName.length)
-    console.log('false')
-}
-
-
-// typer(`Welcome ${playerName}. You have a long journey ahead of you.`)
-// const playerHome = 
-
