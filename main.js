@@ -86,7 +86,6 @@ const mobileOptionButtonPosition = () => {
     const buttonWrapper = document.querySelector('.btn-wrapper');
     const buttonOptions = document.querySelector('.dm-options');
     const imageWrapper = document.querySelector('.image-wrapper');
-    const gameText = document.querySelector('.game-text');
 
     switch (screenSize) {
         case 667:
@@ -146,26 +145,51 @@ mobileOptionButtonPosition()
 // Loops thought text
 let timer;
 function typer(text) {
-  let characters = text.split('');
-  timer = setInterval(() => {
-    if (characters.length > 0) {
-        document.querySelector("#text").innerHTML +=            characters.shift();
-    } else {
-      clearInterval(timer)
-    }
-  }, 30);
+    let characters = text.split('');
+    timer = setInterval(() => {
+        if (characters.length > 0) {
+            document.querySelector("#text").innerHTML += characters.shift();
+        } else {
+            clearInterval(timer);
+        }
+    }, 30);
 }
 
-typer('This is a test')
+let playerInput = document.querySelector('#player-input');
+let playerEnter = document.querySelector('#player-enter');
+let playerSpeaking = ''
 
+const playerInteraction = () => {
+    playerSpeaking = playerInput.value;
+    playerInput.value = '';
+}
 
-const playerInput = document.querySelector('#player-input')
-
-playerInput.addEventListener('keydown', () => {
-    console.log(input.value)
+playerEnter.addEventListener('click', () => {
+    if (playerInput.value.length > 0) {
+        playerInteraction();
+    }
 })
 
-// const playerName = 
+playerInput.addEventListener('keydown', (e) => {
+    if (playerInput.value.length > 0 && e.which === 13) {
+        playerInteraction();
+    }
+})
+
+let playerName = '';
+
+if (playerName.length = 0) {
+    console.log(playerName.length)
+    console.log('true')
+    // typer(`You're lucky I got here when I did. You looked pretty roughed up. What's your name traveler?`)
+    // playerName = playerInput.value
+    // console.log(playerName)
+}
+else {
+    console.log(playerName.length)
+    console.log('false')
+}
+
 
 // typer(`Welcome ${playerName}. You have a long journey ahead of you.`)
 // const playerHome = 
