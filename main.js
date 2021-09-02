@@ -142,8 +142,9 @@ mobileOptionButtonPosition()
 // frameLooper('This is a test');
 // ************************************************************
 
-// Loops thought text
+// ******** Adventure Dialog Box (Start) ********
 let timer;
+// ******** Type to Adventure Dialog Box (Contains Typing Effect) ********
 function typer(text) {
     let characters = text.split('');
     timer = setInterval(() => {
@@ -154,35 +155,9 @@ function typer(text) {
         }
     }, 30);
 }
+// ******** Adventure Dialog Box (End) ********
+
 
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
-let playerSpeaking = '';
-let playerName = '';
 
-const activateTyping = () => {
-    playerInput.disabled = false
-    playerEnter.disabled = false
-}
-
-const deactivateTyping = () => {
-    playerInput.disabled = true
-    playerEnter.disabled = true
-}
-
-const playerSpoke = () => {
-    playerSpeaking = playerInput.value;
-    playerInput.value = '';
-}
-
-playerEnter.addEventListener('click', () => {
-    if (playerInput.value.length > 0) {
-        playerSpoke();
-    }
-})
-
-playerInput.addEventListener('keydown', (e) => {
-    if (playerInput.value.length > 0 && e.which === 13) {
-        playerSpoke();
-    }
-})

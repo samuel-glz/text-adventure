@@ -1,0 +1,23 @@
+{
+  "name": "text-adventure",
+  "version": "1.0.0",
+  "description": "Text adventure game for advanced JS practice.",
+  "main": "main.js",
+  "scripts": {
+    "build-tw" : "tailwindcss build -i src/tailwindstyles.css -o styles/tw-styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuel-glz/text-adventure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuel-glz/text-adventure/issues"
+  },
+  "homepage": "https://github.com/samuel-glz/text-adventure#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.9"
+  }
+}
