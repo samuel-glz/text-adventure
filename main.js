@@ -1,9 +1,3 @@
-
-/* TODO: 
-1. Change internal code for each function that uses addClasses to instead use this glocal version. "e" will be for the dom element (example: darkModeOrb would be "e". See "orbColor" for reference.)
-2. This is not ready to use yet. Currently a work in progress.
-*/
-
 const dmToggle = (e, ...styles) => {
     styles.forEach(element => e.classList.toggle(element))
 }
@@ -111,41 +105,9 @@ const mobileOptionButtonPosition = () => {
 
 mobileOptionButtonPosition()
 
-// ************************************************************
-// Alternate Version of typing text 1 letter at a time
-// Cache the element
-// const div = document.querySelector('#text');
-
-// function frameLooper(str) {
-
-//   // Split the string
-//   const arr = str.split('');
-
-//   // Create a small loop for the `setTimeout` to call
-//   // Set the index to 0
-//   function loop(i = 0) {
-
-//     // If the index is less than the array length
-//     // add a letter from the array
-//     if (i < arr.length) div.textContent += arr[i];
-
-//     // Otherwise increase the index, and run the loop again
-//     setTimeout(loop, 100, ++i);
-
-//   }
-
-//   loop();
-
-// }
-
-// // Pass in the string
-// frameLooper('This is a test');
-// ************************************************************
-
-// ******** Adventure Dialog Box (Start) ********
 let timer;
 // ******** Type to Adventure Dialog Box (Contains Typing Effect) ********
-function typer(text) {
+const typer = (text) => {
     let characters = text.split('');
     timer = setInterval(() => {
         if (characters.length > 0) {
@@ -155,15 +117,37 @@ function typer(text) {
         }
     }, 30);
 }
-// ******** Adventure Dialog Box (End) ********
+
+const clearText = () => {
+    let adventureText = document.querySelector('#text');
+    adventureText.innerText = ''
+}
 
 
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
 
-let playerName = '';
+let playerName = 'testin1g';
 
 typer('Hey there...What is your name?')
 
-let playerDialog = '';
+function validate(e) {
+    //Regrex (Regular Expression) for valid characters i.e. Alphabets, Numbers, and Space
+    //This regex does NOT allow numbers.
+    let regex = /^[A-Za-z]+$/
+    //This regex allows for numbers.
+    // let regex = /^[A-Za-z0-9 ]+$/
+    let isValid = regex.test(e)
+    return isValid === true ? 'true' : 'false'
+}
 
+const takePlayerInput = (string) => {
+
+    if (/\d/.test(string)) {
+        clearText();
+        typer(text);
+    }
+    else {
+        alert('You may only use letters in your name. Please enter a valid name.');
+    }
+}
