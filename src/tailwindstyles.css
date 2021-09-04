@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.button-sm {
+    @apply border-2 border-blue-400 rounded-md  ml-2 px-2 flex justify-items-center bg-white font-mono bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-pink-500 hover:to-red-500 h-7 flex my-auto text-white;
+}
+
+.button-lg {
+    @apply border-2 rounded-md bg-indigo-600 text-white bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-pink-500 hover:to-red-500 text-center text-sm font-semibold md:py-2 w-24 py-2;
+}

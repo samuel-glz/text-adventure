@@ -161,3 +161,9 @@ function typer(text) {
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
 
+let playerName = '';
+
+typer('Hey there...What is your name?')
+
+let playerDialog = '';
+
