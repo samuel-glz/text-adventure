@@ -75,6 +75,7 @@ const addClass = (e, newClass) => {
     e.classList.add(newClass)
 }
 
+// ******** Repositions the option button container based on screensize ********
 const mobileOptionButtonPosition = () => {
     const screenSize = window.screen.height;
     const buttonWrapper = document.querySelector('.btn-wrapper');
@@ -105,8 +106,8 @@ const mobileOptionButtonPosition = () => {
 
 mobileOptionButtonPosition()
 
+// ******** Adventure Dialog Box Typer (Contains Typing Effect) ********
 let timer;
-// ******** Type to Adventure Dialog Box (Contains Typing Effect) ********
 const typer = (text) => {
     let characters = text.split('');
     timer = setInterval(() => {
@@ -118,36 +119,46 @@ const typer = (text) => {
     }, 30);
 }
 
-const clearText = () => {
+// ******** Clears the adventure dialog box ********
+const clearTyper = () => {
     let adventureText = document.querySelector('#text');
     adventureText.innerText = ''
 }
 
+// ******** Validates input from the player ********
+const validateInput = (e) => {
+    let regex = /^([a-zA-Z]+\s)*[a-zA-Z]+$/
+    // let regex = /^[A-Za-z]+$/
+    let isValid = regex.test(e)
+
+    if (isValid === false && e.length < 2) {
+        alert('Invalid Entry:\nEntry must be at least 2 characters long and contain only letters')
+    }
+    else if (e.length < 2) {
+        alert('Invalid Entry:\nEntry must be at least 2 characters long')
+    }
+    else if (isValid === false) {
+        alert('Invalid Entry:\nEntry must only contain letters and cannot start or end with a space')
+    }
+    else if (isValid) {
+        return e;
+    }
+    else {
+        alert('Invalid Entry:\nUnknown error has occurered')
+    }
+}
+
+typer('Hey there...What is your name?')
 
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
 
-let playerName = 'testin1g';
-
-typer('Hey there...What is your name?')
-
-function validate(e) {
-    //Regrex (Regular Expression) for valid characters i.e. Alphabets, Numbers, and Space
-    //This regex does NOT allow numbers.
-    let regex = /^[A-Za-z]+$/
-    //This regex allows for numbers.
-    // let regex = /^[A-Za-z0-9 ]+$/
-    let isValid = regex.test(e)
-    return isValid === true ? 'true' : 'false'
-}
-
-const takePlayerInput = (string) => {
-
-    if (/\d/.test(string)) {
-        clearText();
-        typer(text);
+const playerEntry = () => {
+    playerInput.addEventListener('keydown', (e) => {
+    if (playerInput.value.length > 0 && e.key === 'Enter') {
+        validateInput(playerInput.value)
+        playerInput.value = ''
+        // playerInput.disabled = true
     }
-    else {
-        alert('You may only use letters in your name. Please enter a valid name.');
-    }
+})
 }
