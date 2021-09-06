@@ -153,12 +153,18 @@ typer('Hey there...What is your name?')
 let playerInput = document.querySelector('#player-input');
 let playerEnter = document.querySelector('#player-enter');
 
+let entry = ''
+
 const playerEntry = () => {
     playerInput.addEventListener('keydown', (e) => {
     if (playerInput.value.length > 0 && e.key === 'Enter') {
-        validateInput(playerInput.value)
-        playerInput.value = ''
-        // playerInput.disabled = true
+        entry = validateInput(playerInput.value);
+        playerInput.value = '';
     }
 })
 }
+
+
+
+
+
